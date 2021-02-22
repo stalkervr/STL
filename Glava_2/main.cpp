@@ -7,6 +7,7 @@ int Bad_pop();
 int main() {
     cout << "Hello CMake." << endl;
     cout << "Hello CMake." << endl;
+    cout << "Hello Elementary OS CMake." << endl;
 
     Stack s_var1(10);
 
