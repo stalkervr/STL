@@ -32,7 +32,7 @@ void print_entry_1(int i) {
 }
 
 void add_entry(int n) {
-    phone_book_1.reserve(phone_book_1.size() + n);
+    phone_book_1.resize(phone_book_1.size() + n);
 }
 
 void copy_v (vector<Entry>& v) {
