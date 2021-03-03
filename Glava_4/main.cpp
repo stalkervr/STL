@@ -1,7 +1,7 @@
 #include <iostream>
 
 enum test {
-    ASM, AUTO, BREAK
+    ASM, AUTO
 };
 
 void f(test key){
@@ -12,14 +12,12 @@ void f(test key){
         case AUTO:
             std::cout<<"AUTO key"<<std::endl;
             break;
-        case BREAK:
-            std::cout<<"BREAk key"<<std::endl;
-            break;
+
     }
 }
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Hello, World! -- "<< sizeof (test)<< std::endl;
 
 
 

@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include <map>
+#include <iterator>
 #include "Vec.h"
 
 using namespace std;
@@ -99,6 +100,20 @@ int main() {
     phone_book[0].number = 89136561;
 
     print_entry(0);
+
+    ostream_iterator<string> oo(cout);
+
+    *oo = "Hello ";
+    ++oo;
+    *oo = "World";
+
+    istream_iterator<string > ii (cin);
+
+    string s1 = *ii;
+    ++ii;
+    string s2 = *ii;
+
+    cout<<s1<<" "<<s2<<endl;
 
 
     return 0;

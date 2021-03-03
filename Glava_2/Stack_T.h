@@ -14,7 +14,7 @@ template<class T> class Stack_T
     int top;
 
 public:
-    // class exemption
+    // class exception
     class Underflow{};
     class Overflow{};
     // constructor
