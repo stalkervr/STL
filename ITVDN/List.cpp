@@ -11,7 +11,13 @@ List::List() {
 }
 
 List::~List() {
-
+    Node* tmp = head;
+    while (head != nullptr)
+    {
+        tmp = head;
+        head = head->next;
+        delete tmp;
+    }
 }
 
 void List::AddToHead(int data) {
