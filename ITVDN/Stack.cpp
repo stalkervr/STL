@@ -12,6 +12,7 @@ Stack::Stack(int Size) {
 
 Stack::~Stack() {
     delete[] arr;
+    arr = nullptr;
 }
 
 void Stack::Push(int elem)
@@ -27,9 +28,11 @@ void Stack::Pop() {
 }
 
 bool Stack::IsEmpty() {
-    return top;
+    return top <= 0;
 }
 
 int Stack::Top() {
+    if(top <= 0)
+        return 0;
     return arr[top-1];
 }

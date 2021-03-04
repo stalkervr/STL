@@ -1,16 +1,34 @@
 #include <iostream>
 #include "Stack.h"
+#include "List.h"
 using namespace std;
 
 
 
 int main() {
 
-    Stack* stack = new Stack(10);
+//    Stack st(10);
+//
+//    st.Push(5);
+//
+//    cout<<st.Top()<<endl;
 
-    stack->Push(5);
+    List ls;
 
-    cout<<stack->Top()<<endl;
+    ls.AddToHead(1);
+    ls.AddToHead(2);
+    ls.AddToHead(3);
+    ls.AddToTail(4);
+    ls.AddToTail(5);
+
+    ls.Show();
+
+    ls.DeleteFromHead();
+    ls.DeleteFromHead();
+
+    cout<<endl;
+    ls.Show();
+
 
     system("pause");
 }
