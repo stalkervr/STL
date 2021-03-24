@@ -84,7 +84,3 @@ void List_2::DeleteFromTail() {
     tail->next = nullptr;
 
 }
-
-
-
-
