@@ -38,8 +38,19 @@ std::map<string, double> table;
 Token_value get_token();
 
 int main() {
-    std::cout << "Hello, Calc!" << std::endl;
-    return 0;
+//TODO: Don't work const
+    table["pi"] = 3.14;
+    table["e"]  = 2.718;
+
+    while (std::cin)
+    {
+        get_token();
+        if (curr_tok == END) break;
+        if (curr_tok == PRINT) continue;
+        std::cout<< expr(false) << '\n';
+    }
+
+    return no_of_error;
 }
 
 double expr(bool get)
@@ -83,24 +94,20 @@ double prim(bool get)
 {
     if (get) get_token();
     switch (curr_tok) {
-        case NUMBER:
-        {
+        case NUMBER: {
             double v = number_value;
             get_token();
             return v;
         }
-        case NAME:
-        {
+        case NAME: {
             double& v = table[string_value];
             if (get_token() == ASSIGN) v = expr(true);
             return v;
         }
-        case MINUS:
-        {
+        case MINUS: {
             return -prim(true);
         }
-        case LP:
-        {
+        case LP: {
             double e = expr(true);
             if (curr_tok != RP) return error("')' expected");
             get_token();
@@ -109,7 +116,6 @@ double prim(bool get)
         default:
             return error("primary expected");
     }
-    return 0;
 }
 
 double error(const string& s)
@@ -157,6 +163,7 @@ Token_value get_token()
             }
             error("bad token");
             return curr_tok = PRINT;
+
     }
 }
 
