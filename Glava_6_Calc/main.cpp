@@ -163,7 +163,6 @@ Token_value get_token()
             }
             error("bad token");
             return curr_tok = PRINT;
-
     }
 }
 
