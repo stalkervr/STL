@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cmath>
 #include <complex>
+#include <limits>
 using namespace std;
 
 enum test {
@@ -59,6 +60,10 @@ string inttohex(int a);
 
 void simbol_code_out();
 
+void type_size();
+
+void type_min_max_size();
+
 
 int main(int argc, char *argv[])
 {
@@ -81,6 +86,10 @@ int main(int argc, char *argv[])
     cout << "Hello world! " << day(&first) << std::endl;
 
     simbol_code_out();
+
+    type_size();
+
+    type_min_max_size();
 }
 
 
@@ -138,3 +147,28 @@ void simbol_code_out() {
         cout<<i << " -> " << static_cast<int>(i) << " "<<"0x"<<inttohex(static_cast<int>(i)) << endl;
     }
 }
+
+void type_size() {
+    cout<<"short - "<< sizeof(short )<<endl;
+    cout<<"int - "<< sizeof(int)<<endl;
+    cout<<"long - "<< sizeof(long)<<endl;
+    cout<<endl;
+    cout<<"float - "<< sizeof(float)<<endl;
+    cout<<"double - "<< sizeof(double)<<endl;
+    cout<<"long double - "<< sizeof(long double)<<endl;
+    cout<<endl;
+    cout<<"char - "<< sizeof(char)<<endl;
+    cout<<"char16_t - "<< sizeof(char16_t)<<endl;
+    cout<<"char32_t - "<< sizeof(char32_t)<<endl;
+    cout<<"u_char - "<< sizeof(u_char)<<endl;
+    cout<<"wchar_t - "<< sizeof(wchar_t)<<endl;
+    cout<<endl;
+}
+
+void type_min_max_size() {
+
+    cout<<"int - "<<INT16_MIN<<" - "<<INT16_MAX<<endl;
+
+}
+
+//
