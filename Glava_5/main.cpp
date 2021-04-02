@@ -4,6 +4,32 @@
 
 using namespace std;
 
+
+// examples
+int* pi;
+// указатель на указатель на сhar
+char** ppc;
+// массив из 15 указателей на int
+int* ap[15];
+// указатель на функцию с аргументом char* и возвратом int
+int(*fp) (char*);
+// функция с аргументом char* и возвратом указатель на int
+int* f(char* );
+
+const char* p = "Hera1";
+const char* q = "Hera";
+
+void g1(){
+    if(p==q) cout << "one address" << "p -> " << &p << " q -> " << &q << endl;
+}
+
+const char* error_message(int i) {
+    //
+    return "range error";
+}
+
+
+
 char symb = 'a';
 char* p_symb = &symb;
 
@@ -81,6 +107,9 @@ int main() {
     cout<< (int)str[14]<<endl;
 
     std::cout << "Hello, World!" << *ptr_array[0]<< std::endl;
+
+    g1();
+
     return 0;
 }
 
