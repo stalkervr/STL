@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <vector>
+
+//#include <boost/array.hpp>
 
 using namespace std;
 
@@ -71,45 +74,109 @@ int* ptr_array[10];
 void exchange_value(int* a, int* b);
 void exchange_value(int& a, int& b);
 
+// reference
 
+void r_f();
+void r_g();
 
+// double& dd = 1; error
+const double& ddd = 1;
+
+// можно интертрепировать последнюю инициализацию как
+double temp = double(1);
+const double& cdr = temp;
+
+void increment(int& a);
+
+void r_f2() {
+    int x = 1;
+    increment(x);
+}
+
+// лучше делать явно
+
+int incr_1(int pp) { return pp + 1;}
+void incr_2(int* ppp) { (*ppp)++;}
+
+void r_f3() {
+    int x = 1;
+    increment(x); // x=2
+    incr_1(x);       // x=3
+    incr_2(&x);      // x=4
+}
+
+struct Pair
+{
+    string name;
+    double val;
+};
+
+vector<Pair> pairs;
+
+double& value (const string& sss)
+{
+    /*
+     * поддерживает набор пар Pair:
+     * ищет строку s если найдена возвращает соответствующее значение,
+     * в противном случае создает новый Pair и возвращает 0
+     */
+    for (int i3 = 0; i3 < pairs.size(); i3++)
+    {
+        if (sss == pairs[i].name)
+        {
+            return pairs[i].val;
+        }
+    }
+    Pair par = {sss, 0};
+    pairs.push_back(par); // добавляем созданную пару в конец вектора pairs
+    return pairs[pairs.size() - 1].val;
+}
 
 int main() {
 
-    ptr_array[0] = ptr_int_i;
+//    ptr_array[0] = ptr_int_i;
+//
+//
+//    int a = 10;
+//    int b = 26;
+//
+//    int* ptr_a = &a;
+//    int* ptr_b = &b;
+//
+//    int& l_a = a;
+//    int& l_b = b;
+//
+//    cout<< "a = " << a << " b = "<< b<<endl;
+//
+//    exchange_value(ptr_a, ptr_b);
+//
+//    cout<< "a = " << a << " b = "<< b<<endl;
+//
+//    exchange_value(l_a, l_b);
+//
+//    cout<< "a = " << a << " b = "<< b<<endl;
+//
+//    char str[] = "a short string";
+//    string str1 = "a short string";
+//
+//    cout<<"str -- "<< strlen(str)<<endl;
+//    cout<<"str1 -- "<< str1.size()<<endl;
+//
+//    cout<< (int)str[14]<<endl;
+//
+//    std::cout << "Hello, World!" << *ptr_array[0]<< std::endl;
+//
+//    g1();
 
+    string buff;
 
-    int a = 10;
-    int b = 26;
-
-    int* ptr_a = &a;
-    int* ptr_b = &b;
-
-    int& l_a = a;
-    int& l_b = b;
-
-    cout<< "a = " << a << " b = "<< b<<endl;
-
-    exchange_value(ptr_a, ptr_b);
-
-    cout<< "a = " << a << " b = "<< b<<endl;
-
-    exchange_value(l_a, l_b);
-
-    cout<< "a = " << a << " b = "<< b<<endl;
-
-    char str[] = "a short string";
-    string str1 = "a short string";
-
-    cout<<"str -- "<< strlen(str)<<endl;
-    cout<<"str1 -- "<< str1.size()<<endl;
-
-    cout<< (int)str[14]<<endl;
-
-    std::cout << "Hello, World!" << *ptr_array[0]<< std::endl;
-
-    g1();
-
+    while(cin >> buff) value(buff)++;
+    for (vector<Pair> :: const_iterator cp = pairs.begin(); cp != pairs.end(); ++cp)
+        cout << cp->name << " : " << cp->val << '\n';
+    /*
+     * for (auto & pair : pairs)
+     *  cout << pair.name << " : " << pair.val << '\n';
+     */
     return 0;
 }
 
@@ -124,3 +191,25 @@ void exchange_value(int &a, int &b) {
     a = b;
     b = tmp;
 }
+
+void r_f() {
+    int ri = 1;
+    int& rr = ri; // rr & ri теперь ссылаются на одно целое
+    //int& r_rr; error
+    extern int& rrr;
+    int x = r;
+    ri = 2;
+}
+
+void r_g() {
+    int ii = 0;
+    int& rr = ii;
+    rr++; // ii multiply at 1
+    int* pp = &rr; // pp point to ii
+}
+
+void increment(int &a) {
+    a++;
+}
+
+

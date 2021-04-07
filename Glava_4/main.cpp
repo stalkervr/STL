@@ -4,6 +4,8 @@
 
 // g++ -Wall -o test test.cpp
 
+#include <boost/array.hpp>
+
 #include <iostream>
 #include <cmath>
 #include <complex>
