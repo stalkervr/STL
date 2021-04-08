@@ -3,6 +3,11 @@
 #include <iostream>
 #include <math.h>
 #include <complex>
+
+#include <boost/array.hpp>
+#include <boost/version.hpp>
+#include <boost/program_options.hpp>
+
 using namespace std;
 
 char ch = 'n';
@@ -64,6 +69,14 @@ int main(int argc, char *argv[])
 
 
 	cout << "Hello world! " << day(&first) << std::endl;
+
+	std::cout << "Boost version: " 
+          << BOOST_VERSION / 100000
+          << "."
+          << BOOST_VERSION / 100 % 1000
+          << "."
+          << BOOST_VERSION % 100 
+          << std::endl;
 }
 
 int day (Date* p)
