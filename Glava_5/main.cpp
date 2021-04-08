@@ -34,7 +34,7 @@ char symb = 'a';
 char* p_symb = &symb;
 
 int array[10];
-int& l_array = *array;
+//int& l_array = *array;
 
 int i = 111;
 int& r = i;
