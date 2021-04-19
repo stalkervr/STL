@@ -132,6 +132,84 @@ double& value (const string& sss)
     return pairs[pairs.size() - 1].val;
 }
 
+void f_void(int* pi)
+{
+    void* pv = pi; // ок неявное преобразование из int* в void*
+    // *pv; // error нельзя разименовывать void*
+    // pv++ // error нельзя инкрементировать void*
+            // неизвестен размер указуемого объекта
+    int* pi2 = static_cast<int*>(pv); // явное преобразование в int*
+    //double* pd1 = pv; // error
+    //double* pd2 = pi; // error
+    double* pd3 = static_cast<double*>(pv); // небезопасно !!! но допустимо
+}
+
+struct address {
+    const char* name;      // "Jim Dandy"
+    long int number; // 61
+    const char* street;    // "South Str"
+    const char* town;      // "New York"
+    char state[2];   // 'N' 'J'
+    long int zip;    // 7974
+};
+
+void f_aaa ()
+{
+    address jd;
+    jd.name = "Jim Dandy";
+    jd.number = 61;
+}
+
+address jd_1 = {"Jim Dandy", 61, "South Str", "New York", {'N','J'}, 7974};
+
+/*
+ * для указателя р выражение p->m зквивалентно выражнию (*p).m
+ */
+
+void print_address (address* p_adr)
+{
+    cout<<p_adr->name<<'\n'
+        <<p_adr->number<<'\n'
+        <<p_adr->street<<'\n'
+        <<p_adr->town<<'\n'
+        <<p_adr->state[0]<<p_adr->state[1]<<' '<<p_adr->zip<<'\n';
+}
+
+/*
+ * Объекты структурных типов можно присваиваить, передавать в функции и возвращать из функций
+ */
+
+address current;
+
+address set_current(address next)
+{
+    address prev = current;
+    current = next;
+    return prev;
+}
+
+/*
+ * имя нового типа можно использовать сразу после объявления до
+ * его полного определения
+ */
+
+struct Link {
+    Link* previous;
+    Link* successor;
+};
+
+struct List;
+
+struct Link_1{
+    Link* prev;
+    Link* suc;
+    List* member_of;
+};
+
+struct List{
+    Link* head;
+};
+
 int main() {
 
 //    ptr_array[0] = ptr_int_i;
