@@ -211,41 +211,41 @@ struct List{
 };
 
 int main() {
+/*
+    ptr_array[0] = ptr_int_i;
 
-//    ptr_array[0] = ptr_int_i;
-//
-//
-//    int a = 10;
-//    int b = 26;
-//
-//    int* ptr_a = &a;
-//    int* ptr_b = &b;
-//
-//    int& l_a = a;
-//    int& l_b = b;
-//
-//    cout<< "a = " << a << " b = "<< b<<endl;
-//
-//    exchange_value(ptr_a, ptr_b);
-//
-//    cout<< "a = " << a << " b = "<< b<<endl;
-//
-//    exchange_value(l_a, l_b);
-//
-//    cout<< "a = " << a << " b = "<< b<<endl;
-//
-//    char str[] = "a short string";
-//    string str1 = "a short string";
-//
-//    cout<<"str -- "<< strlen(str)<<endl;
-//    cout<<"str1 -- "<< str1.size()<<endl;
-//
-//    cout<< (int)str[14]<<endl;
-//
-//    std::cout << "Hello, World!" << *ptr_array[0]<< std::endl;
-//
-//    g1();
 
+    int a = 10;
+    int b = 26;
+
+    int* ptr_a = &a;
+    int* ptr_b = &b;
+
+    int& l_a = a;
+    int& l_b = b;
+
+    cout<< "a = " << a << " b = "<< b<<endl;
+
+    exchange_value(ptr_a, ptr_b);
+
+    cout<< "a = " << a << " b = "<< b<<endl;
+
+    exchange_value(l_a, l_b);
+
+    cout<< "a = " << a << " b = "<< b<<endl;
+
+    char str[] = "a short string";
+    string str1 = "a short string";
+
+    cout<<"str -- "<< strlen(str)<<endl;
+    cout<<"str1 -- "<< str1.size()<<endl;
+
+    cout<< (int)str[14]<<endl;
+
+    std::cout << "Hello, World!" << *ptr_array[0]<< std::endl;
+
+    g1();
+*/
     string buff;
 
     while(cin >> buff) value(buff)++;

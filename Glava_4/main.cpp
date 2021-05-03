@@ -4,7 +4,7 @@
 
 // g++ -Wall -o test test.cpp
 
-#include <boost/array.hpp>
+//#include <boost/array.hpp>
 
 #include <iostream>
 #include <cmath>
@@ -65,6 +65,8 @@ void simbol_code_out();
 void type_size();
 
 void type_min_max_size();
+
+typedef unsigned char u_char;
 
 
 int main(int argc, char *argv[])
